@@ -26,7 +26,7 @@
     </section>
 
     <div v-if="user.id" class="content">
-      <div class="has-text-centered">
+      <div class="content-header has-text-centered">
         <div class="is-flex is-horizontal-center">
           <figure class="image is-128x128">
             <img
@@ -39,14 +39,9 @@
           </figure>
         </div>
         <h2>{{user.name}}</h2>
-
-        <p>
-          <a :href="user.html_url" target="_blank" rel="noopener noreferrer">@{{ user.login }}</a>
-        </p>
-        <p>
-          <a :href="user.blog">{{ user.blog }}</a>
-        </p>
-        <p>Joined At: {{ joinedAt }}</p>
+        <a :href="user.html_url" target="_blank" rel="noopener noreferrer">@{{ user.login }}</a>
+        <a :href="user.blog" v-if="user.blog"> &middot; {{ user.blog }}</a><br/>
+        <p class="tag is-light"><v-icon name="calendar-day"/>&nbsp; {{ joinedAt }}</p>
       </div>
 
       <nav class="box level is-mobile">
@@ -78,7 +73,7 @@
 
       <div v-if="hasRepos">
             <div class="columns is-mobile is-multiline">
-                <card class="column" 
+                <card class="column is-3" 
                     v-for="repo in Object.keys(repos)" 
                     :data="repos[repo]" 
                     :key="repos[repo].id"
@@ -157,5 +152,16 @@ export default {
 }
 .content {
   margin: 20px;
+}
+.columns {
+  margin-left: 0rem;
+  margin-right: 0rem;
+  margin-top: 0rem;
+}
+.column {
+  padding: 0rem;
+}
+.content-header {
+  margin-bottom: 2rem;
 }
 </style>
