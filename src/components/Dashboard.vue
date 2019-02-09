@@ -73,11 +73,11 @@
 
       <div v-if="hasRepos">
             <div class="columns is-mobile is-multiline">
-                <card class="column is-3" 
+                <repo-card class="column is-3" 
                     v-for="repo in Object.keys(repos)" 
                     :data="repos[repo]" 
                     :key="repos[repo].id"
-                ></card>
+                ></repo-card>
             </div>
       </div>
     </div>
@@ -87,7 +87,7 @@
 <script>
 import axios from "axios";
 import { format } from "date-fns";
-import Card from './Card.vue';
+import RepoCard from './RepoCard.vue';
 
 export default {
   name: "Dashboard",
@@ -103,7 +103,7 @@ export default {
     }
   },
   components: {
-      Card,
+      RepoCard,
   },
   data() {
     return {
