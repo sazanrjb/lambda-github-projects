@@ -47,7 +47,7 @@
       <nav class="box level is-mobile">
         <div class="level-item has-text-centered">
           <div>
-            <p class="heading">Public Repos</p>
+            <p class="heading">Public Repositories</p>
             <p class="title">{{ user.public_repos }}</p>
           </div>
         </div>
